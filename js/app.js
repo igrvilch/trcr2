@@ -10,14 +10,11 @@ var courses = [javaCourse, javaScript, photoshop, webdesign, python, corel];
 
 
 $( document ).ready(function() {
-	
-	for (index = 0; index < courses.length; ++index) {
-		
+	for (index = 0; index < courses.length; ++index) {		
 		jQuery('<div/>', {
 			class: 'panel coursesList',
 			text: courses[index].title,
 			id: courses[index].title 
-
 		}).appendTo('#coursesId');
 	}
 });
@@ -41,8 +38,7 @@ $(document).ready(function(){
 	$(".coursesList").click(function(){  
 		for (index = 0; index < courses.length; ++index) {
 			if (courses[index].title == this.id) {
-				$("#description span").text(courses[index].desc);
-				
+				$("#description span").text(courses[index].desc);				
 				$("#description img").attr("src", courses[index].img);
 			}
 		}	
@@ -50,18 +46,14 @@ $(document).ready(function(){
 });
 
 $(document).ready(function(){
-	$("#textSearch").keyup(function(){
-		
+	$("#textSearch").keyup(function(){		
 		$("#coursesId div").each(function(){
-
 			$(this).html($(this).html().replace("<span>", ""));
 			$(this).html($(this).html().replace("</span>", ""));
-		}); 
+		}); 		
 		var text = $(this).val();
-
 		$("#coursesId div").each(function(){
-
-			$(this).html($(this).html().replace(new RegExp(text, "i"), "<span>"+ text + "</span>"));
+			$(this).html($(this).html().replace(new RegExp(text, "i"), "<span>"+ text + "</span>"));					
 		}); 	
 	});
 });
